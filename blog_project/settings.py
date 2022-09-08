@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    "accounts",
     "blog.apps.BlogConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -120,3 +121,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]  #per static file e shtojme na te settingsi
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
