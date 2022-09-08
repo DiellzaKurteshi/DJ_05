@@ -15,7 +15,8 @@ class BlogTests(TestCase):
         password = 'secret'
         )
         self.post = Post.objects.create(
-        title = 'A good title',
+        #title = 'A good title',
+        title = 'Title',
         body = 'Nice body content',
         author = self.user
         )
@@ -25,7 +26,8 @@ class BlogTests(TestCase):
         self.assertEqual(str(post), post.title)
 
     def test_post_content(self):
-        self.assertEqual(f'{self.post.title}','A good title')
+        #self.assertEqual(f'{self.post.title}','A good title')
+        self.assertEqual(f'{self.post.title}','Title')
         self.assertEqual(f'{self.post.author}','testuser')
         self.assertEqual(f'{self.post.body}','Nice body content')
 
@@ -40,7 +42,8 @@ class BlogTests(TestCase):
         no_response = self.client.get('/post/1000')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
-        self.assertContains(response, 'A good title')
+        #self.assertContains(response, 'A good title')
+        self.assertContains(response, 'Title')
         self.assertTemplateUsed(response, 'post_detail.html')
 
     def test_post_create_view(self):
